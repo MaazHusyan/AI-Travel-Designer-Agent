@@ -1,17 +1,11 @@
-from agent_base import Agent
-from tools.get_flights import get_flights
-from tools.suggest_hotels import suggest_hotels
+# agents/booking_agent.py
+import json
 
-class BookingAgent(Agent):
-    def __init__(self):
-        prompt = (
-            "You are a booking assistant. Given a destination, date, and budget, "
-            "use available data to describe a flight and hotel booking."
+class BookingAgent:
+    def get_flights_and_hotels(self, destination):
+        with open("mock_data/flights_hotels.json") as f:
+            data = json.load(f)
+        return (
+            data["flights"].get(destination, ["Mock Flight 1", "Mock Flight 2"]),
+            data["hotels"].get(destination, ["Mock Hotel 1", "Mock Hotel 2"])
         )
-        super().__init__(prompt)
-
-    def run(self, destination, dates, budget):
-        flights = get_flights(destination, dates)
-        hotels = suggest_hotels(destination, budget)
-        user_input = f"Destination: {destination}, Dates: {dates}, Budget: ${budget}\nFlights: {flights}\nHotels: {hotels}"
-        return super().run(user_input)

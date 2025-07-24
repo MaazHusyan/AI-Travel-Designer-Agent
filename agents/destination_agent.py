@@ -1,9 +1,12 @@
-from agent_base import Agent
+# agents/destination_agent.py
 
-class DestinationAgent(Agent):
-    def __init__(self):
-        prompt = (
-            "You are a travel advisor. Based on the user's mood or interest, "
-            "suggest the best travel destination. Keep the answer short."
-        )
-        super().__init__(prompt)
+class DestinationAgent:
+    def suggest_destination(self, mood):
+        mood_map = {
+            "romantic": "Paris",
+            "adventure": "Queenstown",
+            "beach": "Maldives",
+            "history": "Rome",
+            "nature": "Kyoto"
+        }
+        return mood_map.get(mood.lower(), "Bali")

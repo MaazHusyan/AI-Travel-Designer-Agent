@@ -1,0 +1,10 @@
+{
+  "flights": {
+    "Paris": ["Flight A123", "Flight B456"],
+    "Rome": ["Flight R123", "Flight R456"]
+  },
+  "hotels": {
+    "Paris": ["Hotel Le Meurice", "Hotel Lutetia"],
+    "Rome": ["Hotel Eden", "Hotel de Russie"]
+  }
+}
